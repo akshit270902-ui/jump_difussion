@@ -1,0 +1,14 @@
+WINDOWS = [10, 50, 100]
+N_REGIMES = 3
+JUMP_PENALTY = 40.0
+MIN_DWELL = 20         
+N_INIT = 10            
+MAX_ITER = 500
+TOL = 1e-6
+
+RESAMPLE_FREQ = "60T"   
+CUTOFF_DATE = "2021-01-01"
+
+RAW_DATA_PATH = "data/raw/BTCUSDT_1m.csv"
+PROCESSED_PATH = "data/processed/BTCUSDT_1h.csv"
+RESULTS_DIR = "results/"
