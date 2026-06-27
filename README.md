@@ -61,7 +61,7 @@ Metrics are generated via multiclass One-vs-Rest (OvR) Macro ROC AUC against the
 ![Causal Jump Model 1 - Test on Second Half](btc_jump_model_1_test_regimes.png)
 
 ### 3. Causal Jump Model 2 (Out-of-Sample Test Evaluation on First Half)
-![Causal Jump Model 2 - Test on First Half](btc_jump_model_2_test_regimes.png)
+![Causal Jump Model 2 - Test on First Half]([btc_jump_model_2_test_regimes.png](https://github.com/akshit270902-ui/jump_difussion/blob/f9a47286c82b520763fa9e0190943039d641b203/casual_model_1st_half_regime.png))
 
 ---
 
