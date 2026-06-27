@@ -43,6 +43,14 @@ $$\min_{\{s_t\}_{t=1}^N, \{\mu_k\}_{k=1}^K} \sum_{t=1}^N \|x_t - \mu_{s_t}\|^2 +
 
 Where $x_t \in \mathbb{R}^d$ represents the scaled level-2 path signature payload, $\mu_k$ is the cluster spatial centroid for regime $k$, $s_t \in \{0, 1, 2\}$ is the assigned state label, and $\lambda$ acts as the strategic structural switch friction barrier (`JUMP_PENALTY = 40.0`).
 
+### 2. The Global Jump Model Objective Function
+
+Rather than traditional hidden Markov structures requiring restrictive probabilistic distributions, this architecture groups sequential paths by optimization of the regularized loss function:
+
+$$\min_{\{s_t\}_{t=1}^N, \{\mu_k\}_{k=1}^K} \sum_{t=1}^N \|x_t - \mu_{s_t}\|^2 + \lambda \sum_{t=2}^N \mathbb{I}(s_t \neq s_{t-1})$$
+
+Where $x_t \in \mathbb{R}^d$ represents the scaled level-2 path signature payload, $\mu_k$ is the cluster spatial centroid for regime $k$, $s_t \in \{0, 1, 2\}$ is the assigned state label, and $\lambda$ acts as the strategic structural switch friction barrier (`JUMP_PENALTY = 40.0`).
+
 ---
 
 ## Project Output Footprints
