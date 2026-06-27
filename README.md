@@ -55,7 +55,7 @@ Metrics are generated via multiclass One-vs-Rest (OvR) Macro ROC AUC against the
 ## Regime Visualization Subsystems
 
 ### 1. Global Baseline Model (Full Dataset Timeline History)
-![Baseline Jump Model - Full Dataset Look-Ahead](btc_jump_model_baseline.png)
+![Baseline Jump Model - Full Dataset Look-Ahead]([btc_jump_model_baseline.png](https://github.com/akshit270902-ui/jump_difussion/blob/eeb7e53c0cb7c690859aed28e308e5f22b61c9b1/baseline_model_regime.png))
 
 ### 2. Causal Jump Model 1 (Out-of-Sample Test Evaluation on Second Half)
 ![Causal Jump Model 1 - Test on Second Half](btc_jump_model_1_test_regimes.png)
