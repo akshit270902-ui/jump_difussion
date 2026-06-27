@@ -20,30 +20,8 @@ The system leverages **Multi-Window Path Signatures (truncated to level 2)** to 
 
 ---
 
-## Method & Mathematical Formulations
-
-### 1. Multi-Window Path Signature Feature Extraction
-
-For each window length $W \in \{10, 50, 100\}$, a 4-dimensional temporal path matrix $X_t$ is constructed for the discrete space:
-
-$$X_t = \begin{bmatrix} t & \sum \text{log\_ret} & \sum \text{volume} & \sum \text{vol\_delta} \end{bmatrix}^T$$
-
-Where $\text{vol\_delta} = 2 \cdot \text{taker\_buy\_volume} - \text{volume}$. To ensure geometric scale-invariance across periods of extreme market expansion, each slice is MinMax normalized independently to $[0, 1]^4$ before generating the signature.
-
-The path signature is truncated to **Level 2** to calculate structural shape characteristics without parameter explosion:
-* **Level 1 (Linear Displacement Delta):** $$\mathbf{S}_1^{(i)} = X_T^{(i)} - X_0^{(i)}$$
-* **Level 2 (Iterated Inter-Path Cross Integrals):** Calculated explicitly via cross-product matrices over incremental coordinate shifts $dX_t$:
-  $$\mathbf{S}_2^{(i, j)} = \int_{0}^{T} \left( X_t^{(i)} - X_0^{(i)} \right) dX_t^{(j)}$$
-
-### 2. The Global Jump Model Objective Function
-
-Rather than traditional hidden Markov structures requiring restrictive probabilistic distributions, this architecture groups sequential paths by optimization of the regularized loss function:
-
-$$\min_{\{s_t\}_{t=1}^N, \{\mu_k\}_{k=1}^K} \sum_{t=1}^N \|x_t - \mu_{s_t}\|^2 + \lambda \sum_{t=2}^N \mathbb{I}(s_t \neq s_{t-1})$$
-
-Where $x_t \in \mathbb{R}^d$ represents the scaled level-2 path signature payload, $\mu_k$ is the cluster spatial centroid for regime $k$, $s_t \in \{0, 1, 2\}$ is the assigned state label, and $\lambda$ acts as the strategic structural switch friction barrier (`JUMP_PENALTY = 40.0`).
-
-### 2. The Global Jump Model Objective Function
+## Method
+### 1. The Global Jump Model Objective Function
 
 Rather than traditional hidden Markov structures requiring restrictive probabilistic distributions, this architecture groups sequential paths by optimization of the regularized loss function:
 
